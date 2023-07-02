@@ -43,4 +43,14 @@ $(function () {
     $(this).addClass('on').siblings().removeClass('on')
     MainSlide.slideTo(idx);
   });
-})
+
+
+  // $('.tab_link li').on('click', function (event) {
+  //   event.preventDefault();
+  //   let idx = $(this).index(); //0,1,2
+
+  //   $(this).addClass('on')
+  //     .siblings().removeClass('on');
+
+
+});

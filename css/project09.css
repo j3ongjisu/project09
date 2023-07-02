@@ -313,3 +313,70 @@
   border-radius: 15px;
   transition: 0.5s linear;
 }
+
+/* 탭 */
+#tab_block .tit {
+  margin: 0 auto 30px auto;
+}
+
+#tab_block .tit h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+#tab_block .inner {
+  width: 500px;
+}
+
+.tab_link {
+  /* display: flex;*/
+  display: table;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.tab_link>* {
+  /* flex: 1;*/
+  display: table-cell;
+  background: #333;
+  color: #fff;
+}
+
+.tab_link>*~* {
+  border-left: 1px solid #ddd;
+}
+
+.tab_link>*.on {
+  background: tomato;
+}
+
+.tab_link a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.tab_content .con {
+  background: #f9f9f9;
+}
+
+/*.tab_content .con {
+  display: none;
+}
+
+.tab_content .con.on {
+  display: block;
+}
+*/
+
+.tab_content .con {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+/*https://www.biew.co.kr/entry/%EC%9B%B9%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%85%94%EA%B0%80-%EC%95%8C%EA%B3%A0%EC%9E%88%EC%96%B4%EC%95%BC-%ED%95%A0-display-table-%EC%86%8D%EC%84%B1*/
+.tab_content .con.on {
+  visibility: visible;
+  height: auto;
+}
