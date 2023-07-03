@@ -204,7 +204,7 @@
 .MainVisual .main_slide .itm {
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 132px);
 }
 
 .MainVisual .main_slide .itm .slide-img {
@@ -271,26 +271,94 @@
   transform: translate(-30px, 0);
 }
 
-/* 슬라이드 도트 */
-.MainVisual .dots {
+/* 스크롤 */
+.MainVisual .scroll {
   position: absolute;
   bottom: 100px;
   left: 50%;
-  z-index: 999;
+  transform: translate(-50%, 0);
+  z-index: 1000;
+}
+
+.MainVisual .scroll span {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.MainVisual .scroll span::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 1px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, 0);
+}
+
+.MainVisual .scroll span::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
   transform: translate(-50%, 0);
 
+  animation: circle 1.5s infinite cubic-bezier(1, .18, .49, 1.03);
+}
+
+@keyframes circle {
+  0% {
+    transform: translate(-50%, 0);
+    outline: 0 solid rgba(255, 255, 255, 1)
+  }
+
+  90% {
+    outline: 0 solid rgba(255, 255, 255, 1);
+  }
+
+  100% {
+    transform: translate(-50%, 90px);
+    outline: 20px solid rgba(255, 255, 255, 0);
+  }
+}
+
+
+/* 슬라이드 도트 */
+.MainVisual .dots {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, 0);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #9dc92a;
+  border-radius: 20px;
   display: flex;
-  gap: 10px;
 }
 
 .MainVisual .dots li span {
+  font-size: 0;
+}
+
+.MainVisual .dots li span::before {
   position: absolute;
+  content: "";
+  width: 14px;
+  height: 14px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 12px;
   font-weight: 600;
-  color: #6F2B8C;
+  border: 2px solid #6F2B8C;
+  border-radius: 50%;
+  z-index: 999;
 }
 
 .MainVisual .dots li {
@@ -306,32 +374,46 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 38px;
-  height: 18px;
-  background: #ddd;
-  border: 2px solid #9dc92a;
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
   transition: 0.5s linear;
 }
 
 /* 탭 */
-#tab_block .tit {
-  margin: 0 auto 30px auto;
+.tab_block {
+  padding: 100px 0;
 }
 
-#tab_block .tit h2 {
-  font-size: 30px;
+.tab_block .tit {
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.tab_block .tit h2 {
+  font-size: 35px;
   font-weight: 700;
   margin: 0 0 10px 0;
 }
 
-#tab_block .inner {
-  width: 500px;
+.tab_block .tit span {
+  color: #6F2B8C;
+  font-weight: 800;
+}
+
+.tab_block .tit p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tab_block .inner {
+  width: 1200px;
 }
 
 .tab_link {
   /* display: flex;*/
   display: table;
+  table-layout: fixed;
   width: 100%;
   margin: 0 0 10px 0;
 }
@@ -339,8 +421,10 @@
 .tab_link>* {
   /* flex: 1;*/
   display: table-cell;
-  background: #333;
-  color: #fff;
+  background: #fff;
+  border: 2px solid #9dc92a;
+  border-radius: 15px;
+  color: #666;
 }
 
 .tab_link>*~* {
@@ -348,26 +432,21 @@
 }
 
 .tab_link>*.on {
-  background: tomato;
+  background: #9dc92a;
+  border: 2px solid #9dc92a;
+  color: #fff;
 }
 
 .tab_link a {
+  text-align: center;
   display: block;
   padding: 10px 20px;
+  font-weight: 500;
 }
 
 .tab_content .con {
-  background: #f9f9f9;
+  background: #fff;
 }
-
-/*.tab_content .con {
-  display: none;
-}
-
-.tab_content .con.on {
-  display: block;
-}
-*/
 
 .tab_content .con {
   visibility: hidden;
@@ -375,8 +454,141 @@
   overflow: hidden;
 }
 
-/*https://www.biew.co.kr/entry/%EC%9B%B9%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%85%94%EA%B0%80-%EC%95%8C%EA%B3%A0%EC%9E%88%EC%96%B4%EC%95%BC-%ED%95%A0-display-table-%EC%86%8D%EC%84%B1*/
 .tab_content .con.on {
   visibility: visible;
   height: auto;
+}
+
+.tab_content .con .img_wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.tab_content .con .img_wrap li {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.tab_content .con .img_wrap li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 1px solid #9dc92a;
+  border-left: 1px solid #9dc92a;
+  border-radius: 13px;
+  opacity: 0;
+  z-index: 999;
+}
+
+.tab_content .con .img_wrap li:hover::before {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.tab_content .con .img_wrap li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 1px solid #9dc92a;
+  border-right: 1px solid #9dc92a;
+  border-radius: 13px;
+  opacity: 0;
+  z-index: 999;
+}
+
+.tab_content .con .img_wrap li:hover::after {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.tab_content .con .img_wrap li .img_box {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 20px 0;
+}
+
+.tab_content .con .img_wrap li .img_box .link {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  gap: 10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.tab_content .con .img_wrap li:hover .img_box .link {
+  opacity: 1;
+}
+
+.tab_content .con .img_wrap li .img_txt {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.tab_content .con .img_wrap li .img_txt p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tab_content .con .img_wrap li .price {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.tab_content .con .img_wrap li .price strong {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* section - mainbackground */
+.mainBackground {
+  padding: 100px 0;
+  position: relative;
+  height: 400px;
+  background-image: url(../images/bg01.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+.mainBackground .bg_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Nanum Myeongjo', serif;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.mainBackground h2 {
+  margin: 0 0 15px 0;
+  font-size: 60px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+.mainBackground p {
+  font-size: 26px;
+  font-weight: 100;
+  color: #fff;
+  line-height: 1.3;
+
 }

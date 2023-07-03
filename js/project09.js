@@ -1,4 +1,5 @@
 $(function () {
+
   $(window).on('scroll', function () {
     const sct = $(window).scrollTop();
     if (sct > 0) {
@@ -45,12 +46,14 @@ $(function () {
   });
 
 
-  // $('.tab_link li').on('click', function (event) {
-  //   event.preventDefault();
-  //   let idx = $(this).index(); //0,1,2
+  $('.tab_link li').on('click', function (event) {
+    event.preventDefault();
+    let idx = $(this).index();
 
-  //   $(this).addClass('on')
-  //     .siblings().removeClass('on');
-
+    $(this).addClass('on')
+      .siblings().removeClass('on');
+    $('.tab_content .con').eq(idx).addClass('on')
+      .siblings().removeClass('on');
+  });
 
 });
