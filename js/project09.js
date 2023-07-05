@@ -13,14 +13,14 @@ $(function () {
   const MainSlide = new Swiper('.main_slide', {
     loop: true,
     parallax: true,
-    speed: 1600,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+    // speed: 1600,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
     on: {
       slideChangeTransitionStart: function () {
-        $('.MainVisual .dots li')
+        $('.main_visual .dots li')
           .eq(this.realIndex)
           .addClass('on')
           .siblings()
@@ -31,20 +31,19 @@ $(function () {
 
 
 
-  $('.MainVisual .arrows .left').on('click', function () {
+  $('.main_visual .arrows .left').on('click', function () {
     MainSlide.slidePrev();
   });
-  $('.MainVisual .arrows .right').on('click', function () {
+  $('.main_visual .arrows .right').on('click', function () {
     MainSlide.slideNext();
   });
 
 
-  $('.MainVisual .dots li').on('click', function () {
+  $('.main_visual .dots li').on('click', function () {
     const idx = $(this).index();
     $(this).addClass('on').siblings().removeClass('on')
     MainSlide.slideTo(idx);
   });
-
 
   $('.tab_link li').on('click', function (event) {
     event.preventDefault();
