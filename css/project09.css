@@ -490,7 +490,7 @@
 }
 
 .tab_block .inner {
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .tab_link {
@@ -1524,9 +1524,9 @@
 
 
 @media (max-width: 768px) {
-  * {
-    outline: 1px solid tomato;
-  }
+  /* * {
+    outline: 1px solid;
+  } */
 
   .inner {
     max-width: 1200px;
@@ -1559,12 +1559,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 100%;
     transition: 0.5s;
   }
 
   .header.on .header_wrap {
-    height: 80px;
+    height: 100%;
   }
 
   .header h1 {
@@ -1573,38 +1573,98 @@
 
   .header h1 img {
     display: inline-block;
-    height: 25px;
+    height: 30px;
     vertical-align: middle;
   }
 
-  .gnb.on {
-    right: 0;
+  .mobile_btn {
+    position: fixed;
+    inset: 30px 30px auto auto;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    background: #ddd;
+    border-radius: 5px;
   }
 
-  .gnb .main_menu {
-    display: flex;
-    padding: 150px 0 0 0;
+  .mobile_btn::before,
+  .mobile_btn::after {
+    content: "";
+    position: absolute;
+    inset: 14px 5px auto 5px;
+    height: 2px;
+    background: #444;
   }
 
-  .gnb .main_menu>li {
-    position: relative;
-    padding: 0 30px;
+  .mobile_btn.on::before {
+    transform: rotate(45deg);
+    transition: 0.5s 0.2s;
   }
 
-  .gnb .main_menu a {
-    position: relative;
-    display: block;
-    font-size: 17px;
-    font-weight: 500;
-    color: #777;
-    line-height: 120px;
+  .mobile_btn.on::after {
+    transform: rotate(-225deg);
+    transition: 0.5s 0.6s;
+  }
+
+  .mobile_btn button {
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .mobile_btn button::before,
+  .mobile_btn button::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background: #444;
+  }
+
+  .mobile_btn button::before {
+    inset: 7px 5px auto 5px;
+  }
+
+  .mobile_btn button::after {
+    inset: auto 5px 7px 5px;
+  }
+
+  .mobile_btn.on button::before {
+    display: none;
+  }
+
+  .mobile_btn.on button::after {
+    display: none;
+  }
+
+  .header .gnb {
+    position: fixed;
+    width: 100%;
+    left: -100%;
+    top: 0;
     transition: 0.5s;
   }
 
-  .gnb .main_menu a:hover {
-    color: #9dc92a;
-    font-weight: 500;
+  .header .gnb.on {
+    inset: 0 auto 0 0;
   }
+
+
+  .gnb .main_menu {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    gap: 0;
+    padding: 150px 30px 0 30px;
+  }
+
+  .gnb .main_menu>li {
+    line-height: 40px;
+  }
+
+  .gnb .main_menu a {
+    border-bottom: 1px solid #ddd;
+  }
+
 
   .gnb .main_menu li~li::before {
     position: absolute;
@@ -1627,42 +1687,33 @@
     left: 50%;
     transform: translate(-50%, 0);
     background: #fff;
-    width: 180px;
+    width: 100%;
     text-align: center;
 
     padding: 15px 0;
     border-radius: 40px;
-    border: 3px solid #9dc92a;
+    border: 2px solid #9dc92a;
 
     opacity: 0;
     visibility: hidden;
 
-    transition: 0.5s;
+    transition: 0s;
   }
 
   .gnb .main_menu .sub_menu::before {
-    position: absolute;
-    content: "";
-    top: -12px;
-    left: 78px;
-    border-top: 10px solid #9dc92a;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 0px solid transparent;
-    transform: rotate(180deg);
+    display: none;
   }
 
   .gnb .main_menu>li:hover .sub_menu {
+    display: none;
+
     top: 100px;
     opacity: 1;
     visibility: visible;
   }
 
-  .header.on .gnb .main_menu>li:hover:hover .sub_menu {
-    top: 90px;
-  }
-
   .header .gnb .sub_menu a {
+    padding: 0 0 0 15px;
     display: block;
     color: #adadad;
     font-size: 16px;
@@ -1671,14 +1722,12 @@
   }
 
   .header .gnb .sub_menu a:hover {
-    color: #6F2B8C;
+    color: #9dc92a;
     font-weight: 500;
   }
 
   .login_area .member {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
+    display: none;
   }
 
   .login_area .member i {
@@ -1716,35 +1765,35 @@
   .main_visual .main_slide .itm {
     position: relative;
     overflow: hidden;
-    height: calc(100vh - 132px);
+    height: 50vh;
   }
 
   .main_visual .main_slide .itm .main_slide_txt {
     position: absolute;
-    top: 170px;
-    left: 365px;
+    top: 100px;
+    left: 70px;
     z-index: 999;
   }
 
   .main_visual .main_slide .itm .main_slide_txt::before {
     content: "";
     position: absolute;
-    width: 660px;
-    height: 320px;
-    top: -70px;
-    left: -45px;
+    width: 485px;
+    height: 150px;
+    top: -15px;
+    left: -71px;
     border-top: 1px solid rgba(111, 43, 140, 0.4);
     border-bottom: 1px solid #6f2b8c66;
     /* background: rgba(0, 0, 0, 0.1); */
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(5px);
     z-index: -1;
   }
 
   .main_visual .main_slide .itm .txt02 {
     position: absolute;
-    top: 170px;
-    left: 365px;
+    top: 100px;
+    left: 70px;
   }
 
   .main_visual .main_slide .itm .txt02::before {
@@ -1755,12 +1804,12 @@
   .main_visual .main_slide .itm .txt03 {
     position: absolute;
     text-align: right;
-    top: 170px;
-    left: 965px;
+    top: 100px;
+    left: 70px;
   }
 
   .main_visual .main_slide .itm .main_slide_txt p {
-    font-size: 49px;
+    font-size: 28px;
     font-weight: 400;
     line-height: 1.2;
     color: #fff;
@@ -1768,19 +1817,19 @@
   }
 
   .main_visual .main_slide .itm .main_slide_txt span {
-    font-size: 53px;
+    font-size: 35px;
     font-weight: 600;
     color: #6F2B8C;
   }
 
   .main_visual .main_slide .itm .txt02 span {
-    font-size: 53px;
+    font-size: 35px;
     font-weight: 600;
     color: #9dc92a;
   }
 
   .main_visual .main_slide .itm .main_slide_txt strong img {
-    width: 90px;
+    width: 70px;
     margin: 0 0 9px 0;
   }
 
@@ -1823,8 +1872,8 @@
   .main_visual .arrows i {
     border-radius: 50%;
     color: #fff;
-    font-size: 90px;
-    opacity: 0.3;
+    font-size: 50px;
+    opacity: 1;
     cursor: pointer;
     transition: 0.5s;
   }
@@ -1836,19 +1885,13 @@
   }
 
   .main_visual:hover .arrows .left {
-    opacity: 0.8;
-    transform: translate(30px, 0);
-  }
-
-  .main_visual .arrows .right {
-    position: absolute;
-    right: 0;
-    top: 0;
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
   .main_visual:hover .arrows .right {
-    opacity: 0.8;
-    transform: translate(-30px, 0);
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
   /* 스크롤 */
@@ -1960,14 +2003,14 @@
 
   .tab_block .tit {
     position: relative;
-    margin: 0 auto 30px auto;
+    margin: 0 0 30px 0;
     text-align: center;
   }
 
   .tab_block .tit h2 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
   }
 
   .tab_block .tit img {
@@ -1976,15 +2019,15 @@
   }
 
   .tab_block .tit p {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
   }
 
   .tab_block .tit .link a {
     position: absolute;
-    top: 50px;
+    top: 68px;
     right: 15px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #666;
     transition: 0.5s;
@@ -2001,13 +2044,14 @@
   }
 
   .tab_block .inner {
-    width: 1200px;
+    width: auto;
   }
 
   .tab_link {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: auto;
     margin: 0 0 10px 0;
   }
 
@@ -2049,7 +2093,7 @@
 
   .tab_content .con .img_wrap {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 3fr);
     gap: 10px;
   }
 
@@ -2112,7 +2156,7 @@
     flex-direction: column;
     bottom: 20px;
     right: 20px;
-    font-size: 17px;
+    font-size: 13px;
     gap: 10px;
     opacity: 0;
     transition: 0.5s;
@@ -2135,7 +2179,7 @@
   }
 
   .tab_content .con .img_wrap li .img_txt p {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
   }
 
@@ -2145,7 +2189,7 @@
   }
 
   .tab_content .con .img_wrap li .price strong {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
   }
 
@@ -2168,13 +2212,13 @@
   }
 
   .main_issue .title h2 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
   }
 
   .main_issue .title p {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     margin: 0 0 30px 0;
   }
@@ -2186,9 +2230,9 @@
 
   .main_issue .title a {
     position: absolute;
-    top: 45px;
-    right: 13px;
-    font-size: 16px;
+    top: 68px;
+    right: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: #666;
     transition: 0.5s;
@@ -2331,6 +2375,7 @@
 
   .main_event .case {
     overflow: hidden;
+    padding: 0 15px;
   }
 
   .main_event .event_slide {
@@ -2349,11 +2394,11 @@
     content: "EVENT";
     position: absolute;
     display: flex;
-    top: 50px;
+    top: 30px;
     left: 45px;
-    width: 75px;
-    height: 28px;
-    font-size: 13px;
+    width: 60px;
+    height: 27px;
+    font-size: 11px;
     font-weight: 300;
     border-radius: 15px;
     color: #fff;
@@ -2371,14 +2416,14 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100px;
+    top: 75px;
     left: 60px;
     z-index: 999;
 
   }
 
   .main_event .event_slide figure .box01 strong {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
     color: #fff;
 
@@ -2391,14 +2436,14 @@
   }
 
   .main_event .event_slide figure .txt_box strong {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
-    margin: 0 0 25px 0;
+    margin: 0 0 15px 0;
     line-height: 1.1;
   }
 
   .main_event .event_slide figure .txt_box span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     margin: 0 0 10px 0;
   }
@@ -2564,7 +2609,7 @@
 
   /*왼쪽*/
   .main_banner .banner_box .banner_lf {
-    width: 520px;
+    width: 100%;
     height: 230px;
     background: #ceeef8 url(../images/info_bnr01.png) no-repeat center center/cover;
     border-radius: 15px;
@@ -2575,7 +2620,8 @@
   }
 
   .main_banner .banner_box .banner_lf .lf_txt {
-    transform: translate(10%, 45%);
+    transform: translate(0, 0);
+    padding: 50px 30px;
   }
 
   .main_banner .banner_box .banner_lf:hover h2 {
@@ -2643,7 +2689,7 @@
 
   /*오른쪽*/
   .main_banner .banner_box .banner_rg {
-    width: 520px;
+    width: 100%;
     height: 230px;
     background: #dcdafc url(../images/info_bnr02.png) no-repeat center center/cover;
     border-radius: 15px;
@@ -2654,7 +2700,8 @@
   }
 
   .main_banner .banner_box .banner_rg .rg_txt {
-    transform: translate(10%, 45%);
+    transform: translate(0, 0);
+    padding: 50px 30px;
   }
 
   .main_banner .banner_box .banner_rg:hover h2 {
@@ -2737,7 +2784,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1903px;
+    width: 100%;
     height: 400px;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
@@ -2852,19 +2899,27 @@
   .footer .ft_box {
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
   }
 
   .footer .ft_box .ft_left {
     position: relative;
-    padding: 0 364px 0 0;
+    padding: 0 0 20px 0;
   }
 
   .footer .ft_box .ft_left .sns {
-    position: absolute;
-    top: 80px;
-    right: 20px;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    gap: 5px;
+  }
+
+  .footer .quick_menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 40px 0;
   }
 
 
@@ -2886,7 +2941,7 @@
   /*to_top 버튼*/
   .to_top {
     position: fixed;
-    bottom: 0px;
+    top: 903px;
     right: 0px;
     z-index: 999;
     opacity: 0;
@@ -2902,10 +2957,10 @@
 
   .to_top i {
     color: #fff;
-    background: rgba(221, 221, 221, 0.5);
+    background: rgba(221, 221, 221, 1);
     padding: 13px;
     font-size: 25px;
-    border-radius: 50%;
+    border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
   }
