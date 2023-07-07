@@ -443,33 +443,33 @@
 
 
 /* 탭 */
-.tab_block {
+.main_tab {
   padding: 100px 0;
 }
 
-.tab_block .tit {
+.main_tab .tit {
   position: relative;
   margin: 0 auto 30px auto;
   text-align: center;
 }
 
-.tab_block .tit h2 {
+.main_tab .tit h2 {
   font-size: 35px;
   font-weight: 700;
   margin: 0 0 10px 0;
 }
 
-.tab_block .tit img {
+.main_tab .tit img {
   width: 65px;
   margin: 0 0 5px 0;
 }
 
-.tab_block .tit p {
+.main_tab .tit p {
   font-size: 16px;
   font-weight: 400;
 }
 
-.tab_block .tit .link a {
+.main_tab .tit .link a {
   position: absolute;
   top: 50px;
   right: 15px;
@@ -479,7 +479,7 @@
   transition: 0.5s;
 }
 
-.tab_block .tit .link a:hover::before {
+.main_tab .tit .link a:hover::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -489,7 +489,7 @@
   background: #666;
 }
 
-.tab_block .inner {
+.main_tab .inner {
   max-width: 1200px;
 }
 
@@ -2021,33 +2021,33 @@
 
 
   /* 탭 */
-  .tab_block {
+  .main_tab {
     padding: 100px 0;
   }
 
-  .tab_block .tit {
+  .main_tab .tit {
     position: relative;
     margin: 0 0 30px 0;
     text-align: center;
   }
 
-  .tab_block .tit h2 {
+  .main_tab .tit h2 {
     font-size: 30px;
     font-weight: 700;
     margin: 0 0 5px 0;
   }
 
-  .tab_block .tit img {
+  .main_tab .tit img {
     width: 65px;
     margin: 0 0 5px 0;
   }
 
-  .tab_block .tit p {
+  .main_tab .tit p {
     font-size: 15px;
     font-weight: 400;
   }
 
-  .tab_block .tit .link a {
+  .main_tab .tit .link a {
     position: absolute;
     top: 68px;
     right: 15px;
@@ -2057,7 +2057,7 @@
     transition: 0.5s;
   }
 
-  .tab_block .tit .link a:hover::before {
+  .main_tab .tit .link a:hover::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -2067,7 +2067,7 @@
     background: #666;
   }
 
-  .tab_block .inner {
+  .main_tab .inner {
     width: auto;
   }
 
