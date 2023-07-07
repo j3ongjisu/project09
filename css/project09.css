@@ -924,7 +924,28 @@
 
 .main_issue .arrows i {
   font-size: 20px;
-  background: #fff;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  display: flex;
+  justify-content: space-between;
+  transform: translate(-50%, -50%);
+  padding: 0 15px;
+  height: 0;
+}
+
+.main_issue .arrows i:hover {
+  color: #9dc92a;
+}
+
+.main_issue .arrows .left {
+  top: -9px;
+  right: -170px
+}
+
+.main_issue .arrows .right {
+  top: -9px;
+  left: 345px;
 }
 
 /* 슬라이드 버튼 만들어주기 */
@@ -1086,7 +1107,8 @@
   font-weight: 900;
   color: #fff;
   text-align: center;
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 .main_event .arrows .left {
@@ -1100,7 +1122,8 @@
 }
 
 .main_event .arrows i:hover {
-  color: #6F2B8C;
+  color: #9dc92a;
+  background: rgba(255, 255, 255, 1)
 }
 
 /* 슬라이드 버튼 만들어주기 */
@@ -1339,7 +1362,7 @@
 }
 
 .footer .ft_box .ft_left {
-  padding: 0 364px 0 0;
+  padding: 0 330px 0 0;
 }
 
 .footer .ft_box .ft_left .logo_box {
@@ -1400,7 +1423,7 @@
 .footer .quick_menu {
   display: flex;
   flex-direction: column;
-  padding: 0 50px 0 0;
+  padding: 0 84px 0 0;
 }
 
 .footer .quick_menu strong {
@@ -1495,7 +1518,7 @@
 }
 
 .to_top i:hover {
-  background: #9dc92a;
+  background: #6F2B8C;
 }
 
 
@@ -1557,9 +1580,9 @@
 
   .header .header_wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 65px;
     transition: 0.5s;
   }
 
@@ -1569,6 +1592,7 @@
 
   .header h1 {
     font-size: 0;
+    z-index: 999;
   }
 
   .header h1 img {
@@ -1654,7 +1678,7 @@
     flex-direction: column;
     background: #fff;
     gap: 0;
-    padding: 150px 30px 0 30px;
+    padding: 100px 30px 100% 30px;
   }
 
   .gnb .main_menu>li {
@@ -1662,19 +1686,21 @@
   }
 
   .gnb .main_menu a {
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+    text-align: center;
+    line-height: 75px;
   }
 
-
   .gnb .main_menu li~li::before {
+    display: none;
     position: absolute;
     content: "";
-    width: 1px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     top: 50%;
     left: 0%;
     transform: translate(-50%, -50%);
-    background: #ddd;
+    background: #ccc;
   }
 
   .header.on .gnb .main_menu a {
@@ -1682,22 +1708,22 @@
   }
 
   .gnb .main_menu .sub_menu {
-    position: absolute;
+    position: static;
     top: 130px;
     left: 50%;
-    transform: translate(-50%, 0);
-    background: #fff;
+    transform: translate(0, 0);
+    background: rgba(164, 211, 44, 1);
     width: 100%;
     text-align: center;
+    width: 100%;
+    padding: 0 0;
+    border-radius: 50px;
+    border: 0;
 
-    padding: 15px 0;
-    border-radius: 40px;
-    border: 2px solid #9dc92a;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0s;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+    display: none;
   }
 
   .gnb .main_menu .sub_menu::before {
@@ -1705,8 +1731,6 @@
   }
 
   .gnb .main_menu>li:hover .sub_menu {
-    display: none;
-
     top: 100px;
     opacity: 1;
     visibility: visible;
@@ -1715,15 +1739,15 @@
   .header .gnb .sub_menu a {
     padding: 0 0 0 15px;
     display: block;
-    color: #adadad;
-    font-size: 16px;
-    font-weight: 500;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
     line-height: 40px;
   }
 
   .header .gnb .sub_menu a:hover {
-    color: #9dc92a;
-    font-weight: 500;
+    color: #fff;
+    font-weight: 400;
   }
 
   .login_area .member {
@@ -1900,7 +1924,7 @@
     bottom: 100px;
     left: 50%;
     transform: translate(-40%, 0);
-    z-index: 1000;
+    z-index: 999;
   }
 
   .main_visual .scroll span {
@@ -2038,7 +2062,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 110px;
+    width: 86%;
     height: 1px;
     background: #666;
   }
@@ -2246,7 +2270,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 145px;
+    width: 88%;
     height: 1px;
     background: #666;
   }
@@ -2301,7 +2325,7 @@
   .main_issue .arrows {
     position: absolute;
     left: 50%;
-    top: 88.5%;
+    top: 88%;
     display: flex;
     justify-content: space-between;
 
@@ -2559,7 +2583,7 @@
     color: #666;
     font-size: 14px;
     font-weight: 300;
-    margin: 0 0 230px 0;
+    margin: 0 0 220px 0;
   }
 
   .main_story .inner .left img {
@@ -2926,15 +2950,15 @@
   .mobile_btn {
     display: block;
     position: fixed;
-    top: 42px;
-    right: 28px;
+    top: 18px;
+    right: 18px;
     z-index: 1000;
 
     border-radius: 5px;
     font-size: 30px;
-    color: var(--bc);
+    color: #444;
     padding: 5px 7px;
-    background: var(--gc);
+    background: #f1f1f1;
   }
 
 
