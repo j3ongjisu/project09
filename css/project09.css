@@ -197,6 +197,10 @@
   background: #444;
 }
 
+.mobile_btn {
+  display: none;
+}
+
 /*메인 슬라이드*/
 .main_visual {
   position: relative;
@@ -211,7 +215,7 @@
 .main_visual .main_slide .itm .main_slide_txt {
   position: absolute;
   top: 170px;
-  left: 365px;
+  left: 415px;
   z-index: 999;
 }
 
@@ -226,14 +230,14 @@
   border-bottom: 1px solid #6f2b8c66;
   /* background: rgba(0, 0, 0, 0.1); */
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(15px);
   z-index: -1;
 }
 
 .main_visual .main_slide .itm .txt02 {
   position: absolute;
   top: 170px;
-  left: 365px;
+  left: 415px;
 }
 
 .main_visual .main_slide .itm .txt02::before {
@@ -245,7 +249,7 @@
   position: absolute;
   text-align: right;
   top: 170px;
-  left: 965px;
+  left: 925px;
 }
 
 .main_visual .main_slide .itm .main_slide_txt p {
@@ -272,12 +276,6 @@
   width: 90px;
   margin: 0 0 9px 0;
 }
-
-/* .main_visual .main_slide .itm .main_slide_txt strong {
-  font-size: 57px;
-  font-weight: 900;
-  color: #6F2B8C;
-} */
 
 .main_visual .main_slide .itm .slide-img {
   position: absolute;
@@ -396,50 +394,6 @@
     outline: 20px solid rgba(255, 255, 255, 0);
   }
 }
-
-
-/* 슬라이드 도트 */
-/* .main_visual .dots {
-  position: absolute;
-  display: flex;
-  width: 120px;
-  height: 35px;
-  bottom: 130px;
-  left: 50%;
-  z-index: 999;
-  transform: translate(-50%, 0);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.main_visual .dots li span {
-  font-size: 0;
-}
-
-.main_visual .dots li span::before {
-  position: absolute;
-  content: "";
-  width: 12px;
-  height: 12px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid #6F2B8C;
-  border-radius: 3px;
-  background: #6F2B8C;
-  z-index: 999;
-}
-
-.main_visual .dots li {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-} */
 
 
 /* 탭 */
@@ -1526,26 +1480,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 768px) {
   /* * {
     outline: 1px solid;
@@ -1671,7 +1605,6 @@
   .header .gnb.on {
     inset: 0 auto 0 0;
   }
-
 
   .gnb .main_menu {
     display: flex;
@@ -2217,14 +2150,12 @@
     font-weight: 400;
   }
 
-
-
   /* section - main_issue */
   .main_issue {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     position: relative;
     background: #fff;
-    border-top: 1px solid #f9f9f9;
+    border-top: 0px solid #f9f9f9;
   }
 
   .main_issue .title {
