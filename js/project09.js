@@ -14,10 +14,10 @@ $(function () {
     loop: true,
     parallax: true,
     speed: 2000,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     on: {
       slideChangeTransitionStart: function () {
         $('.main_visual .dots li')
